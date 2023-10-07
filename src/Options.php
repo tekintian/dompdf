@@ -105,7 +105,7 @@ class Options
      *
      * @var string|float[]
      */
-    private $defaultPaperSize = "letter";
+    private $defaultPaperSize = "A4";
 
     /**
      * The default paper orientation.
@@ -123,7 +123,7 @@ class Options
      *
      * @var string
      */
-    private $defaultFont = "serif";
+    private $defaultFont = "hyqh";
 
     /**
      * Image DPI setting
@@ -329,7 +329,7 @@ class Options
         $this->setHttpContext([
             "http" => [
                 "follow_location" => false,
-                "user_agent" => "Dompdf$ver https://github.com/dompdf/dompdf"
+                "user_agent" => "Dompdf_CN$ver https://gitee.com/tekintian/dompdf"
             ]
         ]);
 

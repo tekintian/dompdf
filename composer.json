@@ -1,10 +1,14 @@
 {
-    "name": "dompdf/dompdf",
+    "name": "tekintian/dompdf",
     "type": "library",
-    "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
-    "homepage": "https://github.com/dompdf/dompdf",
+    "description": "默认支持中文的dompdf, HTML转PDF工具类, DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+    "homepage": "https://gitee.com/tekintian/dompdf",
     "license": "LGPL-2.1",
     "authors": [
+         {
+            "name": "tekintian",
+            "homepage": "https://gitee.com/tekintian/dompdf"
+        },
         {
             "name": "The Dompdf Community",
             "homepage": "https://github.com/dompdf/dompdf/blob/master/AUTHORS.md"

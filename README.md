@@ -1,11 +1,46 @@
-Dompdf
+Dompdf 中文版
 ======
+本项目为Dompdf的默认中文支持版本.
 
-[![Build Status](https://github.com/dompdf/dompdf/actions/workflows/test.yml/badge.svg)](https://github.com/dompdf/dompdf/actions/workflows/test.yml)
-[![Latest Release](https://poser.pugx.org/dompdf/dompdf/v/stable.png)](https://packagist.org/packages/dompdf/dompdf)
-[![Total Downloads](https://poser.pugx.org/dompdf/dompdf/downloads.png)](https://packagist.org/packages/dompdf/dompdf)
-[![License](https://poser.pugx.org/dompdf/dompdf/license.png)](https://packagist.org/packages/dompdf/dompdf)
- 
+官方默认不支持中文,要支持中文需要一堆的设置, 太过麻烦,所以直接适配了这个默认支持中文的版本.
+
+加载后默认支持中文,不需要任何配置.
+
+
+
+默认中文字体:  hyqh  汉仪旗黑  大小为 2.1M 
+
+
+
+## 使用中文字体
+
+在需要进行pdf转换的HTML中使用中文字体的方式与普通的HTML相同，可以是内联样式，也可以使用在style标签中。
+~~~html
+<body style="font-family:hyqh">中文字体</body>
+~~~
+
+
+
+自行添加其他中文字体
+
+~~~sh
+# 将 load_font.php 拷贝到项目根目录(和vendor同级目录)
+cp vendor/tekintian/dompdf/load_font.php ./
+
+# 安装字体到库中
+php ./load_font.php "字体名称" "字体路径.ttf"
+
+~~~
+
+
+
+
+
+技术交流QQ:932256355
+
+
+
+
 **Dompdf is an HTML to PDF converter**
 
 At its heart, dompdf is (mostly) a [CSS 2.1](http://www.w3.org/TR/CSS2/) compliant
@@ -14,7 +49,7 @@ it will download and read external stylesheets, inline style tags, and the style
 attributes of individual HTML elements. It also supports most presentational
 HTML attributes.
 
-*This document applies to the latest stable code which may not reflect the current 
+*This document applies to the latest stable code which may not reflect the current
 release. For released code please
 [navigate to the appropriate tag](https://github.com/dompdf/dompdf/tags).*
 
@@ -43,7 +78,7 @@ Follow us on [![Twitter](http://twitter-badges.s3.amazonaws.com/twitter-a.png)](
  * No dependencies on external PDF libraries, thanks to the R&OS PDF class
  * Inline PHP support
  * Basic SVG support (see "Limitations" below)
- 
+
 ## Requirements
 
  * PHP version 7.1 or higher
@@ -51,8 +86,8 @@ Follow us on [![Twitter](http://twitter-badges.s3.amazonaws.com/twitter-a.png)](
  * MBString extension
  * php-font-lib
  * php-svg-lib
- 
-Note that some required dependencies may have further dependencies 
+
+Note that some required dependencies may have further dependencies
 (notably php-svg-lib requires sabberworm/php-css-parser).
 
 ### Recommendations
@@ -103,7 +138,7 @@ require 'vendor/autoload.php';
 
 ### Download and install
 
-Download a packaged archive of dompdf and extract it into the 
+Download a packaged archive of dompdf and extract it into the
 directory where dompdf will reside
 
  * You can download stable copies of dompdf from
@@ -120,7 +155,7 @@ require_once 'dompdf/autoload.inc.php';
 ```
 
 Note: packaged releases are named according using semantic
-versioning (_dompdf_MAJOR-MINOR-PATCH.zip_). So the 1.0.0 
+versioning (_dompdf_MAJOR-MINOR-PATCH.zip_). So the 1.0.0
 release would be dompdf_1-0-0.zip. This is the only download
 that includes the autoloader for Dompdf and all its dependencies.
 
@@ -201,14 +236,14 @@ See [Dompdf\Options](src/Options.php) for a list of available options.
 
 ### Resource Reference Requirements
 
-In order to protect potentially sensitive information Dompdf imposes 
-restrictions on files referenced from the local file system or the web. 
+In order to protect potentially sensitive information Dompdf imposes
+restrictions on files referenced from the local file system or the web.
 
 Files accessed through web-based protocols have the following requirements:
  * The Dompdf option "isRemoteEnabled" must be set to "true"
- * PHP must either have the curl extension enabled or the 
+ * PHP must either have the curl extension enabled or the
    allow_url_fopen setting set to true
-   
+
 Files accessed through the local file system have the following requirement:
  * The file must fall within the path(s) specified for the Dompdf "chroot" option
 

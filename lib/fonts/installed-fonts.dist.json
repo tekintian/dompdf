@@ -76,5 +76,11 @@
         "bold_italic": "DejaVuSerif-BoldItalic",
         "italic": "DejaVuSerif-Italic",
         "normal": "DejaVuSerif"
+    },
+    "hyqh": {
+        "normal": "hyqh",
+        "bold": "hyqh",
+        "italic": "hyqh",
+        "bold_italic": "hyqh"
     }
 }
