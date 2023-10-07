@@ -60,18 +60,18 @@ class DompdfTest extends TestCase
     public function testLoadHtml()
     {
         $dompdf = new Dompdf();
-        $dompdf->loadHtml('<html><body><strong>Hello</strong></body></html>');
-        $this->assertEquals('Hello', $dompdf->getDom()->textContent);
+        $dompdf->loadHtml('<html><body><strong>你好Dompdf!</strong></body></html>');
+        $this->assertEquals('你好Dompdf!', $dompdf->getDom()->textContent);
 
         //Test when encoding parameter is used
-        $dompdf->loadHtml(mb_convert_encoding('<html><body><strong>Hello</strong></body></html>', 'windows-1252'), 'windows-1252');
+        $dompdf->loadHtml(mb_convert_encoding('<html><body><strong>Hello</strong></body></html>', 'utf-8'), 'utf-8');
         $this->assertEquals('Hello', $dompdf->getDom()->textContent);
     }
 
     public function testRender()
     {
         $dompdf = new Dompdf();
-        $dompdf->loadHtml('<html><body><strong>Hello</strong></body></html>');
+        $dompdf->loadHtml('<html><body><strong>你好Dompdf</strong></body></html>');
         $dompdf->render();
 
         $this->assertEquals('', $dompdf->getDom()->textContent);
@@ -108,7 +108,7 @@ class DompdfTest extends TestCase
             ]
         ]);
 
-        $dompdf->loadHtml("<html><body><p>Some text</p></body></html>");
+        $dompdf->loadHtml("<html><body><p>你好中文</p></body></html>");
         $dompdf->render();
 
         $this->assertSame($numCalls, $called);
@@ -132,7 +132,7 @@ class DompdfTest extends TestCase
             ]
         ]);
 
-        $dompdf->loadHtml("<html><body><p>Page 1</p><p style='page-break-before: always;'>Page 2</p></body></html>");
+        $dompdf->loadHtml("<html><body><p>第一页</p><p style='page-break-before: always;'>第二页</p></body></html>");
         $dompdf->render();
 
         $this->assertSame(2, $called);
@@ -161,7 +161,7 @@ class DompdfTest extends TestCase
         string $cssSize
     ): void {
         $options = new Options();
-        $options->setDefaultPaperSize("Letter");
+        $options->setDefaultPaperSize("A4");
 
         $dompdf = new Dompdf($options);
 
